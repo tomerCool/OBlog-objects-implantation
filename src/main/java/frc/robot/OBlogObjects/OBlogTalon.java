@@ -11,14 +11,15 @@ public class OBlogTalon extends TalonSRX implements Loggable {
     private int _deviceNumber = 0;
     private String _name = "Talon";
     
-    public OBlogTalon(int deviceNumber, String name) {
-        super(deviceNumber);
-        this._name = name;
-    }
-
     public OBlogTalon(int deviceNumber) {
         super(deviceNumber);
         this._deviceNumber = deviceNumber;
+    }
+
+    public OBlogTalon(int deviceNumber, String name) {
+        super(deviceNumber);
+        this._deviceNumber = deviceNumber;
+        this._name = name;
     }
 
     //// Setup ////
