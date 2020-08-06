@@ -35,7 +35,7 @@ public class OBlogSpark extends CANSparkMax implements Loggable {
 
     @Override
     public int[] configureLayoutSize() {
-        return new int[] {3, 7};
+        return new int[] {3, 5};
     }
 
     //// Logs ////
