@@ -62,31 +62,31 @@ public class OBlogTalon extends TalonSRX implements Loggable {
     //// Configs ////
 
     @Config(name = "kP")
-    void setP(double p) {
+    void configP(double p) {
         if (Robot.isSimulation()) return;
         this.config_kP(0, p);
     }
 
     @Config(name = "kI")
-    void setI(double i) {
+    void configI(double i) {
         if (Robot.isSimulation()) return;
         this.config_kI(0, i);
     }
 
     @Config(name = "kD")
-    void setD(double d) {
+    void configD(double d) {
         if (Robot.isSimulation()) return;
         this.config_kD(0, d);
     }
 
     @Config(name = "kF")
-    void setF(double f) {
+    void configF(double f) {
         if (Robot.isSimulation()) return;
         this.config_kF(0, f);
     }
 
     @Config(name = "Tolerance")
-    void setTolerance(int tolerance) {
+    void configTolerance(int tolerance) {
         if (Robot.isSimulation()) return;
         this.configAllowableClosedloopError(0, tolerance, 0);
     }
