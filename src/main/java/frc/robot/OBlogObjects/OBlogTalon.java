@@ -36,7 +36,7 @@ public class OBlogTalon extends TalonSRX implements Loggable {
 
     @Override
     public int[] configureLayoutSize() {
-        return new int[] {3, 6};
+        return new int[] {3, 7};
     }
 
     //// Logs ////
