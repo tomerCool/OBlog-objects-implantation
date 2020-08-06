@@ -8,18 +8,27 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.OBlogObjects.OBlogTalon;
+import frc.robot.OBlogObjects.OBlogSpark;
+import frc.robot.OBlogObjects.OBlogVictor;
 import io.github.oblarg.oblog.Loggable;
 
 public class Drivetrain extends SubsystemBase implements Loggable {
-  OBlogTalon L, R;
+  private OBlogSpark _L, _R;
+  private OBlogVictor _LB, _RB, _LF, _RF;
+  
+  private String a = "";
   
   /**
    * Creates a new ExampleSubsystem.
    */
   public Drivetrain() {
-    L = new OBlogTalon(0, "Left Master");
-    R = new OBlogTalon(1, "Right Master");
+    this._L = new OBlogSpark(0, a + "Left Master");
+    this._R = new OBlogSpark(1, a + "Right Master");
+
+    this._LB = new OBlogVictor(2, a + "LB Slave");
+    this._RB = new OBlogVictor(3, a + "RB Slave");
+    this._LF = new OBlogVictor(4, a + "LF Slave");
+    this._RF = new OBlogVictor(5, a + "RF Slave");
   }
 
   @Override
