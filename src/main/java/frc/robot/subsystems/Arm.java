@@ -7,16 +7,12 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 import frc.robot.OBlogObjects.OBlogDigitalInput;
-import frc.robot.OBlogObjects.OBlogPIDF;
 import frc.robot.OBlogObjects.OBlogSolenoid;
-import frc.robot.OBlogObjects.OBlogSpark;
 import io.github.oblarg.oblog.Loggable;
-import io.github.oblarg.oblog.annotations.Config;
-import io.github.oblarg.oblog.annotations.Log;
 
 public class Arm extends SubsystemBase implements Loggable {
   private OBlogDigitalInput _hall;
@@ -29,7 +25,11 @@ public class Arm extends SubsystemBase implements Loggable {
   public Arm() {
     this._hall = new OBlogDigitalInput(0, RobotContainer.updateNT + "DIO");
 
-    _solenoid = new OBlogSolenoid(0, 1, RobotContainer.updateNT + "Solenoid");
+    this._solenoid = new OBlogSolenoid(0, 1, RobotContainer.updateNT + "Solenoid");
+  }
+
+  public void setState(Value value) {
+      this._solenoid.set(value);
   }
 
   @Override

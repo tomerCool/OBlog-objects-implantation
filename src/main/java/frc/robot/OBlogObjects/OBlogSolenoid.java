@@ -1,8 +1,7 @@
 package frc.robot.OBlogObjects;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import frc.robot.Robot;
+import frc.robot.commands.SetArmSolenoid;
 import io.github.oblarg.oblog.Loggable;
 import io.github.oblarg.oblog.annotations.Log;
 
@@ -38,7 +37,7 @@ public class OBlogSolenoid extends DoubleSolenoid implements Loggable {
 
     @Override
     public int[] configureLayoutSize() {
-        return new int[] {1, 1};
+        return new int[] {2, 4};
     }
 
     //// Logs ////
@@ -47,6 +46,13 @@ public class OBlogSolenoid extends DoubleSolenoid implements Loggable {
     public String logMotorOutput() {
         return this.get().toString();
     }
+
+    @Log
+    SetArmSolenoid setForward = new SetArmSolenoid(Value.kForward);
+    @Log
+    SetArmSolenoid setReverse = new SetArmSolenoid(Value.kReverse);
+    @Log
+    SetArmSolenoid setOff = new SetArmSolenoid(Value.kOff);
 
     //// Configs ////
 
