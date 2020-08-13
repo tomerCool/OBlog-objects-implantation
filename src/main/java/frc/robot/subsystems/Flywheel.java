@@ -7,29 +7,28 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotContainer;
 import frc.robot.OBlogObjects.OBlogDigitalInput;
 import frc.robot.OBlogObjects.OBlogPIDF;
 import frc.robot.OBlogObjects.OBlogSpark;
 import io.github.oblarg.oblog.Loggable;
+import io.github.oblarg.oblog.annotations.Config;
+import io.github.oblarg.oblog.annotations.Log;
 
 public class Flywheel extends SubsystemBase implements Loggable {
   private OBlogSpark _L, _R;
   private OBlogPIDF _controller;
-  private OBlogDigitalInput _hall;
-  
-  private String a = "";
   
   /**
    * Creates a new ExampleSubsystem.
    */
   public Flywheel() {
-    this._L = new OBlogSpark(0, a + "Left Master");
-    this._R = new OBlogSpark(1, a + "Right Master");
+    this._L = new OBlogSpark(0, RobotContainer.updateNT + "Left Spark");
+    this._R = new OBlogSpark(1, RobotContainer.updateNT + "Right Spark");
 
-    this._controller = new OBlogPIDF(1.0, 0.0, 0.0, 1.0);
-
-    this._hall = new OBlogDigitalInput(0);
+    this._controller = new OBlogPIDF(1.0, 0.0, 0.0, 1.0, RobotContainer.updateNT + "Controller");
   }
 
   @Override

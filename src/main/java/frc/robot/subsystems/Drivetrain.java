@@ -23,8 +23,13 @@ public class Drivetrain extends SubsystemBase implements Loggable {
    * Creates a new ExampleSubsystem.
    */
   public Drivetrain() {
-    this._L = new OBlogTalon(0, a + "Left Master");
-    this._R = new OBlogTalon(1, a + "Right Master");
+    this._L = new OBlogTalon(0, RobotContainer.updateNT + "Left Talon");
+    this._R = new OBlogTalon(1, RobotContainer.updateNT + "Right Talon");
+
+    this._LB = new OBlogVictor(2, RobotContainer.updateNT + "LB Victor");
+    this._RB = new OBlogVictor(3, RobotContainer.updateNT + "RB Victor");
+    this._LF = new OBlogVictor(4, RobotContainer.updateNT + "LF Victor");
+    this._RF = new OBlogVictor(5, RobotContainer.updateNT + "RF Victor");
 
     this._LB = new OBlogVictor(2, a + "LB Slave");
     this._RB = new OBlogVictor(3, a + "RB Slave");

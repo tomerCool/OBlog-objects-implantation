@@ -20,7 +20,13 @@ import edu.wpi.first.wpilibj2.command.Command;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
+  /**
+   * Network table won't update unless name is different.
+   * So change this to a different string when testing something new.
+   * (Closing and opening the shuffleboard also solves it)
+   */
+  public static String updateNT = "^";
+
   private final Drivetrain drivetrain = new Drivetrain();
   private final Flywheel flywheel = new Flywheel();
 
