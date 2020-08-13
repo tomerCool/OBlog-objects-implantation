@@ -21,7 +21,7 @@ import io.github.oblarg.oblog.annotations.Log;
 public class Arm extends SubsystemBase implements Loggable {
   private OBlogDigitalInput _hall;
 
-  private OBlogSolenoid _sole;
+  private OBlogSolenoid _solenoid;
   
   /**
    * Creates a new ExampleSubsystem.
@@ -29,7 +29,7 @@ public class Arm extends SubsystemBase implements Loggable {
   public Arm() {
     this._hall = new OBlogDigitalInput(0, RobotContainer.updateNT + "DIO");
 
-    _sole = new OBlogSolenoid(0, 1, RobotContainer.updateNT + "Solenoid");
+    _solenoid = new OBlogSolenoid(0, 1, RobotContainer.updateNT + "Solenoid");
   }
 
   @Override
