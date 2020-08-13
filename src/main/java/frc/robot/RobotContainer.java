@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Flywheel;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,6 +30,7 @@ public class RobotContainer {
 
   private final Drivetrain drivetrain = new Drivetrain();
   private final Flywheel flywheel = new Flywheel();
+  private final Arm arm = new Arm();
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
