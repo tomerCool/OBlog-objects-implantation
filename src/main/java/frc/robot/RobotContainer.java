@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.OBlogObjects.OBlogCompressor;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Flywheel;
@@ -26,11 +27,13 @@ public class RobotContainer {
    * So change this to a different string when testing something new.
    * (Closing and opening the shuffleboaard also solves it)
    */
-  public static String updateNT = "$";
+  public static String updateNT = "-";
 
   public static final Drivetrain drivetrain = new Drivetrain();
   public static final Flywheel flywheel = new Flywheel();
   public static final Arm arm = new Arm();
+
+  public static OBlogCompressor compressor = new OBlogCompressor();
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
