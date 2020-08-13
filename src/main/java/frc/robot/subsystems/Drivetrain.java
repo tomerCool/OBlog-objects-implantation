@@ -7,17 +7,23 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
+import frc.robot.OBlogObjects.DummySpeedController;
 import frc.robot.OBlogObjects.OBlogPigeonIMU;
 import frc.robot.OBlogObjects.OBlogSpark;
 import frc.robot.OBlogObjects.OBlogTalon;
 import frc.robot.OBlogObjects.OBlogVictor;
 import io.github.oblarg.oblog.Loggable;
+import io.github.oblarg.oblog.annotations.Log;
 
 public class Drivetrain extends SubsystemBase implements Loggable {
   private OBlogTalon _L, _R;
   private OBlogVictor _LB, _RB, _LF, _RF;
+
+  @Log.DifferentialDrive(name = "Differential Drive")
+  DifferentialDrive drive = new DifferentialDrive(new DummySpeedController(this::getLeftOutput), new DummySpeedController(this::getRightOutput));
 
   // private OBlogPigeonIMU _pigeon;
   
@@ -34,6 +40,18 @@ public class Drivetrain extends SubsystemBase implements Loggable {
     this._RF = new OBlogVictor(5, RobotContainer.updateNT + "RF Victor");
 
     // this._pigeon = new OBlogPigeonIMU(this._R);
+  }
+
+  private double _leftOut, _rightOut;
+
+  public double getLeftOutput() {
+    this._leftOut += 0.01;
+    return Math.sin(this._leftOut);
+  }
+
+  public double getRightOutput() {
+    this._rightOut += 0.01;
+    return Math.cos(this._rightOut);
   }
 
   @Override
