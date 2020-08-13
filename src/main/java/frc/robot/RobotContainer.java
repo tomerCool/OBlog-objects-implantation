@@ -24,13 +24,13 @@ public class RobotContainer {
   /**
    * Network table won't update unless name is different.
    * So change this to a different string when testing something new.
-   * (Closing and opening the shuffleboard also solves it)
+   * (Closing and opening the shuffleboaard also solves it)
    */
-  public static String updateNT = "^";
+  public static String updateNT = "$";
 
-  private final Drivetrain drivetrain = new Drivetrain();
-  private final Flywheel flywheel = new Flywheel();
-  private final Arm arm = new Arm();
+  public static final Drivetrain drivetrain = new Drivetrain();
+  public static final Flywheel flywheel = new Flywheel();
+  public static final Arm arm = new Arm();
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
