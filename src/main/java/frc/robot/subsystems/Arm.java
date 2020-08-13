@@ -28,6 +28,19 @@ public class Arm extends SubsystemBase implements Loggable {
     this._solenoid = new OBlogSolenoid(0, 1, RobotContainer.updateNT + "Solenoid");
   }
 
+  public enum ArmState {
+    SC,
+    UP,
+    DOWN,
+    INTERMEDIATE
+  }
+
+  public enum RollerState {
+    IN,
+    OUT,
+    OFF
+  }
+
   public void setState(Value value) {
       this._solenoid.set(value);
   }
