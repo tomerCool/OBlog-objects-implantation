@@ -13,6 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.OBlogObjects.OBlogDigitalInput;
 import frc.robot.OBlogObjects.OBlogSolenoid;
 import io.github.oblarg.oblog.Loggable;
+import io.github.oblarg.oblog.annotations.Log;
 
 public class Arm extends SubsystemBase implements Loggable {
   private OBlogDigitalInput _hall;
@@ -39,6 +40,11 @@ public class Arm extends SubsystemBase implements Loggable {
     IN,
     OUT,
     OFF
+  }
+
+  @Log
+  public String getRollerState() {
+    return RollerState.OUT.toString();
   }
 
   public void setState(Value value) {
