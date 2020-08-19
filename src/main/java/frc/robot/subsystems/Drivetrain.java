@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.OBlogObjects.DummySpeedController;
 import frc.robot.OBlogObjects.OBlogPigeonIMU;
@@ -25,7 +26,7 @@ public class Drivetrain extends SubsystemBase implements Loggable {
   @Log.DifferentialDrive(name = "Differential Drive")
   DifferentialDrive drive = new DifferentialDrive(new DummySpeedController(this::getLeftOutput), new DummySpeedController(this::getRightOutput));
 
-  // private OBlogPigeonIMU _pigeon;
+  private OBlogPigeonIMU _pigeon;
   
   /**
    * Creates a new ExampleSubsystem.
@@ -39,7 +40,7 @@ public class Drivetrain extends SubsystemBase implements Loggable {
     this._LF = new OBlogVictor(4, RobotContainer.updateNT + "LF Victor");
     this._RF = new OBlogVictor(5, RobotContainer.updateNT + "RF Victor");
 
-    // this._pigeon = new OBlogPigeonIMU(this._R);
+    this._pigeon = Robot.isSimulation() ? new OBlogPigeonIMU(0) : new OBlogPigeonIMU(this._R);
   }
 
   private double _leftOut, _rightOut;

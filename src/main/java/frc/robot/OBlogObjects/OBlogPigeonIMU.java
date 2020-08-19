@@ -9,14 +9,18 @@ import io.github.oblarg.oblog.annotations.Log;
 
 public class OBlogPigeonIMU extends PigeonIMU implements Loggable {
     private String _name = "PigeonIMU";
+
+    @Log.Gyro(name = "Yaw")
+    private DummyGyro _gyroWidget;
     
-    public OBlogPigeonIMU(TalonSRX talon) {
-        super(talon);
+    public OBlogPigeonIMU(int deviceNumber) {
+        super(deviceNumber);
+        this._gyroWidget = new DummyGyro(this::getYaw);
     }
 
-    public OBlogPigeonIMU(TalonSRX talon, String name) {
+    public OBlogPigeonIMU(TalonSRX talon) {
         super(talon);
-        this._name = name;
+        this._gyroWidget = new DummyGyro(this::getYaw);
     }
 
     //// Setup ////
@@ -38,8 +42,8 @@ public class OBlogPigeonIMU extends PigeonIMU implements Loggable {
 
     //// Logs ////
 
-    @Log(name = "Yaw")
-    public double logYaw() {
+    // @Log(name = "Yaw")
+    public double getYaw() {
         if (Robot.isSimulation()) return 0.0;
         double[] ypr = new double[3];
         this.getYawPitchRoll(ypr);
