@@ -1,7 +1,7 @@
 package frc.robot.OBlogObjects;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import frc.robot.commands.SetArmSolenoid;
+import frc.robot.commands.SetSolenoid;
 import io.github.oblarg.oblog.Loggable;
 import io.github.oblarg.oblog.annotations.Log;
 
@@ -48,11 +48,11 @@ public class OBlogSolenoid extends DoubleSolenoid implements Loggable {
     }
 
     @Log
-    SetArmSolenoid setForward = new SetArmSolenoid(Value.kForward);
+    SetSolenoid setForward = new SetSolenoid(this, Value.kForward);
     @Log
-    SetArmSolenoid setReverse = new SetArmSolenoid(Value.kReverse);
+    SetSolenoid setReverse = new SetSolenoid(this, Value.kReverse);
     @Log
-    SetArmSolenoid setOff = new SetArmSolenoid(Value.kOff);
+    SetSolenoid setOff = new SetSolenoid(this, Value.kOff);
 
     //// Configs ////
 
